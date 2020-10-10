@@ -1,4 +1,6 @@
-# INTERFACE
+# API列表
+
+以下请求皆为POST发送。输入输出皆为JSON格式。
 
 ## 发生错误时的默认返回值
 
@@ -9,9 +11,11 @@
 }
 ```
 
-## /login
+## 用户 /user
 
-#### input 1
+### 用户登录 /login
+**/user/login**
+> 输入示例
 
 ``` json
 {
@@ -20,7 +24,7 @@
 }
 ```
 
-#### output 1_1
+> 输出示例
 
 ``` json
 {
@@ -32,27 +36,10 @@
 }
 ```
 
-#### output 1_2
+### 用户登出 /logout
+**/user/logout**
 
-``` json
-{
-    "type": "ERROR",
-    "message": "用户ID或密码错误！"
-}
-```
-
-#### output 1_3
-
-``` json
-{
-    "type": "ERROR",
-    "message": "用户重复！请向管理员寻求帮助！"
-}
-```
-
-## /logout
-
-#### output
+> 输出示例
 
 ``` json
 {
@@ -61,30 +48,32 @@
 }
 ```
 
-## /student
+## 学生 /student
 
-### /student/volbook/\<stuId>
+### 学生完成的义工列表 /volbook/\<stuid>
+**/student/volbook/\<stuId>**
 
-#### output
+> 输出示例
 
 ``` json
 {
     "type": "SUCCESS",
     "message": "获取成功",
     "rec": [
-        {"volId": 1, "inside": 0.5, "outside": 0, "large": 0, "status": 1},
-        {"volId": 3, "inside": 1.5, "outside": 0, "large": 0, "status": 1},
-        {"volId": 5, "inside": 0, "outside": 0, "large": 2, "status": 1},
-        {"volId": 6, "inside": 0, "outside": 2, "large": 0, "status": 1},
+        {"volId": 1, "name": "打扫新华书店", "inside": 0.5, "outside": 0, "large": 0, "status": 1},
+        {"volId": 3, "name": "打扫新华树店", "inside": 1.5, "outside": 0, "large": 0, "status": 1},
+        {"volId": 5, "name": "打扫新华数店", "inside": 0, "outside": 0, "large": 2, "status": 1},
+        {"volId": 6, "name": "打扫新华鼠店", "inside": 0, "outside": 2, "large": 0, "status": 1},
     ]
 }
 ```
 
-## /class
+## 班级 /class
 
-### /class/list 读取全部班级列表
+### 班级列表 /list
+**/class/list**
 
-#### output
+> 输出示例
 
 ``` json
 {
@@ -101,9 +90,10 @@
 }
 ```
 
-### /class/stulist/\<classid> 读取一个班级的全部学生
+### 班级学生列表 /stulist/\<classid>
+**/class/stulist/\<classid>**
 
-#### output
+> 输出示例
 
 ``` json
 {
@@ -120,45 +110,47 @@
 }
 ```
 
-### /class/volunteer/\<classid> 获取一个班级的义工活动列表
+### 班级义工活动列表 /volunteer/\<classid>
+**/class/volunteer/\<classid>**
 
-#### output
-
-``` json
-{
-    "type": "SUCCESS",
-    "message": "获取成功",
-    "volunteer": [
-        {"id": 1, "name": "义工活动1", "time": "2020.10.1" , "description": "打扫新华书店", "status": 1, "stuMax": 20},
-        {"id": 2, "name": "义工活动2", "time": "2020.10.2" , "description": "新华书店打扫", "status": 1, "stuMax": 2},
-        {"id": 3, "name": "义工活动3", "time": "2020.10.3" , "description": "华新书店打扫", "status": 0, "stuMax": 5},
-        {"id": 4, "name": "义工活动4", "time": "2020.10.4" , "description": "打扫华新书店", "status": 2, "stuMax": 10}
-    ]
-}
-```
-
-## /volunteer
-
-### /volunteer/list 义工活动列表
-
-#### output
+> 输出示例
 
 ``` json
 {
     "type": "SUCCESS",
     "message": "获取成功",
     "volunteer": [
-        {"id": 1, "name": "义工活动1", "description": "新华打扫书店", "time": "2020.10.1" , "status": 1, "stuMax": 20},
-        {"id": 2, "name": "义工活动2", "description": "打扫新华书店", "time": "2020.10.2" , "status": 1, "stuMax": 2},
-        {"id": 3, "name": "义工活动3", "description": "打新华打新华", "time": "2020.10.3" , "status": 0, "stuMax": 5},
-        {"id": 4, "name": "义工活动4", "description": "扫书店扫书店", "time": "2020.10.4" , "status": 2, "stuMax": 10}
+        {"id": 1, "name": "义工活动1", "date": "2020.10.1", "time": "13:00", "description": "打扫新华书店", "status": 1, "stuMax": 20},
+        {"id": 2, "name": "义工活动2", "date": "2020.10.2", "time": "13:00", "description": "新华书店打扫", "status": 1, "stuMax": 2},
+        {"id": 3, "name": "义工活动3", "date": "2020.10.3", "time": "13:00", "description": "华新书店打扫", "status": 0, "stuMax": 5},
+        {"id": 4, "name": "义工活动4", "date": "2020.10.4", "time": "13:00", "description": "打扫华新书店", "status": 2, "stuMax": 10}
     ]
 }
 ```
 
-### /volunteer/\<volId> 一项义工的详细信息及报名入口
+## 义工 /volunteer
 
-#### input 1
+### 义工活动列表 /list
+**/volunteer/list**
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "volunteer": [
+        {"id": 1, "name": "义工活动1", "description": "新华打扫书店", "date": "2020.10.1", "time": "13:00", "status": 1, "stuMax": 20},
+        {"id": 2, "name": "义工活动2", "description": "打扫新华书店", "date": "2020.10.2", "time": "13:00", "status": 1, "stuMax": 2},
+        {"id": 3, "name": "义工活动3", "description": "打新华打新华", "date": "2020.10.3", "time": "13:00", "status": 0, "stuMax": 5},
+        {"id": 4, "name": "义工活动4", "description": "扫书店扫书店", "date": "2020.10.4", "time": "13:00", "status": 2, "stuMax": 10}
+    ]
+}
+```
+
+### 义工详细信息 /volunteer/\<volId>
+**/volunteer/\<volId>**
+> 输入示例1
 
 ``` json
 {
@@ -166,14 +158,15 @@
 }
 ```
 
-#### output 1
+> 输出示例1
 
 ``` json
 {
     "type": "SUCCESS",
     "message": "获取成功",
     "name": "义工活动1",
-    "time": "2020.10.1 13:00~16:00",
+    "date": "2020.10.1",
+    "time": "13:00",
     "stuMax": 20,
     "nowStu": 18,
     "description": "新华书店打扫",
@@ -190,8 +183,7 @@
     ]
 }
 ```
-
-#### input 2
+> 输入示例2
 
 ``` json
 {
@@ -205,7 +197,7 @@
 }
 ```
 
-#### output 2_1
+> 输出示例2
 
 ``` json
 {
@@ -213,12 +205,3 @@
     "message": "报名成功"
 }
 ```
-
-#### output 2_2
-
-```` json
-{
-    "type": "ERROR",
-    "message": "人数超限"
-}
-````
