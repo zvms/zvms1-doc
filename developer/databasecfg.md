@@ -1,4 +1,4 @@
-# 数据库规范
+﻿# 数据库规范
 ## user
 
 这个表只储存可以登录的用户，预计每个班和每个老师分配一个账户，义管会、实践部另算
@@ -34,6 +34,7 @@ vnm |volunteering name | CHAR(256) | 义工活动的名称 | 喂孔子+拜锦鲤
 vdt |volunteering date | CHAR(256) | 义工活动的日期 | 2020.9.24 | 长度不知道要多少，凭感觉来:-D
 vtm |volunteering time | CHAR(256) | 义工活动的时间 | 13:00 | 长度不知道要多少，凭感觉来:-D
 smx |maximum students | INTEGER | 义工活动的人数上限 | 10 | 
+nst |now student | INTEGER | 义工活动的现有人数 | 8 |
 dsc |description | CHAR(1024) | 义工活动的描述 | blablablabla | 长度不知道要多少，凭感觉来:-D
 stt |status | SMALLINT | 义工活动的状态 | 0 | `0`表示已经结束，`1`表示还没开始，`2`表示正在进行
 vti |volunteering time inside | INTEGER | 每个人预计将获得的义工时间 | 0 | 以分钟为单位
