@@ -12,8 +12,8 @@
 * 开发
 
   * [API列表](developer/api.md)
-  * [数据库规范](developer/database.md)
-  * [TODO](developer/todo.md)
+  * [数据库规范](developer/databasecfg.md)
+  * [TODO](developer/todolst.md)
   * [开发日志](developer/log.md)
 
 * 其他
