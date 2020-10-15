@@ -148,7 +148,7 @@
 }
 ```
 
-### 义工详细信息 /volunteer/\<volId>
+### 义工详细信息 /\<volId>
 **/volunteer/\<volId>**
 > 输入示例1
 
@@ -205,3 +205,33 @@
     "message": "报名成功"
 }
 ```
+
+### 创建义工活动 /create
+**/volunteer/create**
+> 输入示例
+
+``` json
+{
+    "name": "义工活动1",
+    "date": "2020.10.1",
+    "time": "13:00",
+    "stuMax": 20,
+    "description": "新华书店打扫",
+    "inside": 0,
+    "outside": 3,
+    "large": 0,
+    "class": [
+        202001, 202002, 202003
+    ]
+    // hid 是自动从session获取的
+}
+```
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "创建成功"
+}
+```
+

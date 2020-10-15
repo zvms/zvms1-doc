@@ -63,3 +63,4 @@ vtl |volunteering time large | INTEGER | 实际获得的义工时间 | 0 | 以�
 -|-|-|-|-|-
 vid |volunteering identity | INTEGER | 义工活动的编号 | 1 | 
 cls |class | INTEGER | 班级的编号 | 202001 | 表示`vid`的义工活动，这个班级被允许参加 
+smx |student max | INTEGER | 这个班级被分配给多少名额 | 10 |  
