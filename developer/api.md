@@ -176,7 +176,6 @@
     ]
 }
 ```
-> 输入示例2
 
 ### 报名义工 /signup/\<volId>
 **/volunteer/signup/\<volId>**
