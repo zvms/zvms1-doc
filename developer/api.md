@@ -148,17 +148,10 @@
 }
 ```
 
-### 义工详细信息 /\<volId>
-**/volunteer/\<volId>**
-> 输入示例1
+### 义工详细信息 /fetch/\<volId>
+**/volunteer/fetch/\<volId>**
 
-``` json
-{
-    "type": "FETCH"
-}
-```
-
-> 输出示例1
+> 输出示例
 
 ``` json
 {
@@ -185,9 +178,13 @@
 ```
 > 输入示例2
 
+### 报名义工 /signup/\<volId>
+**/volunteer/signup/\<volId>**
+
+> 输入示例
+
 ``` json
 {
-    "type": "SIGNUP",
     "stulst": [
         20200101,
         20200102,
@@ -197,7 +194,7 @@
 }
 ```
 
-> 输出示例2
+> 输出示例
 
 ``` json
 {
@@ -221,7 +218,9 @@
     "outside": 3,
     "large": 0,
     "class": [
-        202001, 202002, 202003
+        {"id": 202001, "stuMax": 10},
+        {"id": 202002, "stuMax": 5},
+        {"id": 202003, "stuMax": 10}
     ]
     // hid 是自动从session获取的
 }
