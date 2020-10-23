@@ -161,7 +161,7 @@
     "date": "2020.10.1",
     "time": "13:00",
     "stuMax": 20,
-    "nowStu": 18,
+    "stuNow": 18,
     "description": "新华书店打扫",
     "status": 1,
     "inside": 0,
