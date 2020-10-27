@@ -50,7 +50,7 @@
 
 ## 学生 /student
 
-### 学生完成的义工列表 /volbook/\<stuid>
+### 学生完成的义工列表 /volbook/\<stuId>
 **/student/volbook/\<stuId>**
 
 > 输出示例
@@ -90,8 +90,8 @@
 }
 ```
 
-### 班级学生列表 /stulist/\<classid>
-**/class/stulist/\<classid>**
+### 班级学生列表 /stulist/\<classId>
+**/class/stulist/\<classId>**
 
 > 输出示例
 
@@ -110,8 +110,8 @@
 }
 ```
 
-### 班级义工活动列表 /volunteer/\<classid>
-**/class/volunteer/\<classid>**
+### 班级义工活动列表 /volunteer/\<classId>
+**/class/volunteer/\<classId>**
 
 > 输出示例
 
