@@ -5,13 +5,13 @@
 | `user/login` | True | True | True | True |
 | `user/logout` | True | True | True | True |
 | `user/info` | True | True | True | True |
-| `user/getInfo/\<userId> | False | ? | ? | True |
+| `user/getInfo/\<userId>` | False | ? | ? | True |
 | `student/volbook/\<stuId>` | 仅限本班的同学 | True | True | True |
 | `class/list` | True | True | True | True |
 | `class/stulist/\<classId>` | 仅限本班 | ? | True | True |
 | `class/volunteer/\<classId>` | 仅限本班 | ? | ? | True |
 | `volunteer/list` | False | False | ? | True |
-| `volunteer/fetch/\<volId> | 仅限与本班有关 | ? | True | True |
+| `volunteer/fetch/\<volId>` | 仅限与本班有关 | ? | True | True |
 | `volunteer/signup/\<volId>` | 仅限与本班有关 | ? | ? | ? 接口待完善 |
 | `volunteer/create` | False? | True | True | True |
 | `volunteer/audit/\<volId>` | False | False? | True | True |

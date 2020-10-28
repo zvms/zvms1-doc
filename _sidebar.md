@@ -1,4 +1,4 @@
-* 入门
+﻿* 入门
 
   * [快速开始](/#quick-start)
 
@@ -13,6 +13,7 @@
 
   * [API列表](developer/api.md)
   * [数据库规范](developer/databasecfg.md)
+  * [权限说明](developer/authorization.md)
   * [TODO](developer/todolst.md)
   * [开发日志](developer/log.md)
 

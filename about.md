@@ -1,4 +1,4 @@
-# 关于
+﻿# 关于
 项目主页: [码云链接](https://gitee.com/zvms)
 
 参与开发的人员：
@@ -10,7 +10,7 @@
 
 >20届
 [朱程炀](https://gitee.com/zhuchengyang)
-[ 陈琛](https://gitee.com/fpc5719)
+[陈琛](https://gitee.com/fpc5719)
 
 ?> 此文档使用[docsify](https://github.com/docsifyjs/docsify)生成。
 

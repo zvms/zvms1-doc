@@ -264,16 +264,53 @@
 
 ```json
 {
-    "result": True
-    // "result": False
+    "result": true
+    // "result": false
 }
 ```
-> 输出
+> 输出示例
 
 ```json
 {
     "type": "SUCCESS",
     "message": "审核成功"
     // 要判断权限
+}
+```
+
+### 义工活动感想 /thought/\<volId>
+**/volunteer/thought/\<volId>**
+> 输入示例
+
+```json
+{
+    "thought":[
+        {"userId": 20200101, "content": "没有感想"},
+        {"userId": 20200102, "content": "感想没有"}
+    ]
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "提交成功"
+    // 要判断权限
+}
+```
+
+### 随机义工活动感想 /randomThought/
+**/volunteer/randomThought/**
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "userName": "王彳亍",
+    "userId": 20200101,
+    "content": "没有感想"
 }
 ```
