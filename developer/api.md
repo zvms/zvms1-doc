@@ -48,6 +48,38 @@
 }
 ```
 
+### 用户信息 /info
+**/user/info**
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "userName": "王彳亍",
+    "class": 202001,
+    "permission": 0
+    // 返回数据库中除了`userId`之外的所有内容
+}
+```
+
+### 用户信息 /getInfo/\<userId>
+**/user/getInfo/\<userId>**
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "userName": "王彳亍",
+    "class": 202001,
+    "permission": 0
+    // 要判断`session`里的权限是否大于`0`
+}
+```
+
 ## 学生 /student
 
 ### 学生完成的义工列表 /volbook/\<stuId>
@@ -226,3 +258,22 @@
 }
 ```
 
+### 审核义工活动 /audit/\<volId>
+**/volunteer/audit/\<volId>**
+> 输入示例
+
+```json
+{
+    "result": True
+    // "result": False
+}
+```
+> 输出
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "审核成功"
+    // 要判断权限
+}
+```
