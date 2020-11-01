@@ -258,14 +258,32 @@
 }
 ```
 
-### 审核义工活动 /audit/\<volId>
-**/volunteer/audit/\<volId>**
+### 义工活动报名者列表 /signerList/\<volId>
+**/volunteer/signerList/\<volId>**
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "result": [
+        {"stuId": 20200101, "stuName": "王彳亍"},
+        {"stuId": 20200102, "stuName": "王不可"},
+        {"stuId": 20200103, "stuName": "王可"}
+    ]
+}
+```
+
+### 义工活动选人 /choose/\<volId>
+**/volunteer/choose/\<volId>**
 > 输入示例
 
 ```json
 {
-    "result": true
-    // "result": false
+    "result": [
+        {"stuId": 20200101, "res": true},
+        {"stuId": 20200102, "res": false}
+    ]
 }
 ```
 > 输出示例
@@ -278,6 +296,21 @@
 }
 ```
 
+### 义工活动参与者列表 /joinerList/\<volId>
+**/volunteer/joinerList/\<volId>**
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "result": [
+        {"stuId": 20200101, "stuName": "王彳亍"},
+        {"stuId": 20200103, "stuName": "王可"}
+    ]
+}
+```
+
 ### 义工活动感想 /thought/\<volId>
 **/volunteer/thought/\<volId>**
 > 输入示例
@@ -287,6 +320,7 @@
     "thought":[
         {"userId": 20200101, "content": "没有感想"},
         {"userId": 20200102, "content": "感想没有"}
+        // 如果一个人交了两次感想就报错
     ]
 }
 ```
@@ -314,3 +348,25 @@
     "content": "没有感想"
 }
 ```
+
+###　义工活动最终审核　/audit/\<volId>
+**/volunteer/audit/\<volId>**
+
+> 输入示例
+```json
+{
+    // "status": 1, // 审核通过
+    "status": 2, // 感想不通过，感想重新提交后可以再次审核
+    // "status": 3, // 义工活动审核不通过，不能再次审核
+    "thought":[
+        {"stuId": 20200101, "thought": true},
+        {"stuId": 20200101, "thought": false},
+    ],
+    "time": [ // 如果感想未通过，time应该不出现
+        {"stuId": 20200101, "inside": 1.2, "outside": 0, "large": 0},
+        {"stuId": 20200101, "inside": 1.2, "outside": 0, "large": 0},
+    ]
+}
+```
+
+> 输出示例
