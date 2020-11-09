@@ -54,6 +54,7 @@ status |status | SMALLINT | 审核状态 | 0 | `0`表示未通过，`1`表示通
 volTimeInside |volunteering time inside | INTEGER | 实际获得的义工时间 | 0 | 以分钟为单位
 volTimeOutside |volunteering time outside | INTEGER | 实际获得的义工时间 | 0 | 以分钟为单位
 volTimeLarge |volunteering time large | INTEGER | 实际获得的义工时间 | 0 | 以分钟为单位
+thought |volunteering thought | TEXT | 义工感想 | 吃鸡！ | 长度几十字到百字
 
 ## class_vol
 
