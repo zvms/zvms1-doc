@@ -36,7 +36,7 @@ volTime |volunteering time | TIME | 义工活动的时间 | 13:00 | 长度不知
 stuMax |maximum students | INTEGER | 义工活动的人数上限 | 10 | 
 nowStuCount |now student | INTEGER | 义工活动的现有人数 | 8 |
 description |description | TEXT | 义工活动的描述 | blablablabla | 长度不知道要多少，凭感觉来:-D
-status |status | SMALLINT | 义工活动的状态 | 0 | `0`表示已经结束，`1`表示还没开始，`2`表示正在进行
+status |status | SMALLINT | 义工活动的状态 | 0 | `0`表示报名中，`1`表示结束报名，进行中或进行完毕并等待审核，`2`表示审核结束
 volTimeInside |volunteering time inside | INTEGER | 每个人预计将获得的义工时间 | 0 | 以分钟为单位
 volTimeOutside |volunteering time outside | INTEGER | 每个人预计将获得的义工时间 | 0 | 以分钟为单位
 volTimeLarge |volunteering time large | INTEGER | 每个人预计将获得的义工时间 | 0 | 以分钟为单位
