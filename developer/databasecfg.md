@@ -50,7 +50,7 @@ holderId |volunteer holder\'s id | INTEGER | 义工发布者的`id` | 20200101 |
 -|-|-|-|-|-
 volId |volunteering identity | INTEGER | 义工活动的编号 | 1 | 表示`stuId`的学生参加了这个义工活动 
 stuId |student identity | INTEGER | 学生的学号 | 20200101 | 表示这个学生参加了`volId`的义工活动 
-status |status | SMALLINT | 审核状态 | 0 | `0`表示未通过，`1`表示通过，`2`表示审核中
+status |status | SMALLINT | 审核状态 | 0 | `0`表示审核中，`1`表示通过，`2`表示未通过
 volTimeInside |volunteering time inside | INTEGER | 实际获得的义工时间 | 0 | 以分钟为单位
 volTimeOutside |volunteering time outside | INTEGER | 实际获得的义工时间 | 0 | 以分钟为单位
 volTimeLarge |volunteering time large | INTEGER | 实际获得的义工时间 | 0 | 以分钟为单位
