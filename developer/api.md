@@ -2,6 +2,8 @@
 
 以下请求皆为POST发送。输入输出皆为JSON格式。
 
+在没有标注`NoToken`的API中，请将Token一并发送。
+
 ## 发生错误时的默认返回值
 
 ``` json
@@ -13,14 +15,15 @@
 
 ## 用户 /user
 
-### 用户登录 /login
+### 用户登录（NoToken） /login
 **/user/login**
+
 > 输入示例
 
 ``` json
 {
-    "userid": 202001,
-    "password": 123456
+    "userid": "202001",
+    "password": "123456"
 }
 ```
 
@@ -33,10 +36,11 @@
     "username": "王彳亍",
     "class": 202001,
     "permission": 0
+    "token": "xxxx"
 }
 ```
 
-### 用户登出 /logout
+### 用户登出（NoToken） /logout
 **/user/logout**
 
 > 输出示例
@@ -76,7 +80,7 @@
     "userName": "王彳亍",
     "class": 202001,
     "permission": 0
-    // 要判断`session`里的权限是否大于`0`
+    // 只有权限4能使用
 }
 ```
 
@@ -335,8 +339,9 @@
 }
 ```
 
-### 随机义工活动感想 /randomThought/
+### 随机义工活动感想 （NoToken）/randomThought/
 **/volunteer/randomThought/**
+
 > 输出示例
 
 ```json
@@ -349,7 +354,7 @@
 }
 ```
 
-###　义工活动最终审核　/audit/\<volId>
+### 义工活动最终审核/audit/\<volId>
 **/volunteer/audit/\<volId>**
 
 > 输入示例
