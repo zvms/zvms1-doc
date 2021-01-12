@@ -1,4 +1,4 @@
-﻿# 数据库规范
+# 数据库规范
 ## user
 
 这个表只储存可以登录的用户，预计每个班和每个老师分配一个账户，义管会、实践部另算
@@ -65,3 +65,4 @@ thought |volunteering thought | TEXT | 义工感想 | 吃鸡！ | 长度几十�
 volId |volunteering identity | INTEGER | 义工活动的编号 | 1 | 
 class |class | INTEGER | 班级的编号 | 202001 | 表示`volId`的义工活动，这个班级被允许参加 
 stuMax |student max | INTEGER | 这个班级被分配给多少名额 | 10 |  
+nowStuCount | now student count | INTEGER | 当前这个班级报名该义工的人数 | 5 |

@@ -2,7 +2,7 @@
 
 以下请求皆为POST发送。输入输出皆为JSON格式。
 
-在没有标注`NoToken`的API中，请将Token一并发送。
+在没有标注`NoToken`的API中，需要将Token在`Authorization`中一并发送。
 
 ## 发生错误时的默认返回值
 
