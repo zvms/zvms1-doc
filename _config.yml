@@ -1,0 +1,4 @@
+markdown: redcarpet
+permalink: pretty
+highlighter: pygments
+paginate: 3
