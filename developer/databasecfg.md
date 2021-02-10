@@ -31,8 +31,8 @@ volTimeLarge |volunteering time large | INTEGER | 储存学生的义工时间 | 
 -|-|-|-|-|-
 volId |volunteering identity | INTEGER | 义工活动的唯一确定编号 | 1 | 其实这个自动递增倒也无所谓
 volName |volunteering name | CHAR(255) | 义工活动的名称 | 喂孔子+拜锦鲤 | 长度不知道要多少，凭感觉来:-D
-volDate |volunteering date | DATE | 义工活动的日期 | 2020.9.24 | 长度不知道要多少，凭感觉来:-D
-volTime |volunteering time | TIME | 义工活动的时间 | 13:00 | 长度不知道要多少，凭感觉来:-D
+volDate |volunteering date | CHAR(64) | 义工活动的日期 | 2020.9.24 | 长度不知道要多少，凭感觉来:-D
+volTime |volunteering time | CHAR(64) | 义工活动的时间 | 13:00 | 长度不知道要多少，凭感觉来:-D
 stuMax |maximum students | INTEGER | 义工活动的人数上限 | 10 | 
 nowStuCount |now student | INTEGER | 义工活动的现有人数 | 8 |
 description |description | TEXT | 义工活动的描述 | blablablabla | 长度不知道要多少，凭感觉来:-D
