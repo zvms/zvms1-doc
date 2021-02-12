@@ -61,3 +61,71 @@
 
 ## 3. 接口调用
 
+### 3.1. 用户相关 `/user/`
+
+#### 3.1.1. 登陆 `/user/login`
+
+NoToken
+
+> 输入示例
+
+``` json
+{
+    "userid": "202001",
+    "password": "123456"
+}
+```
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "登陆成功",
+    "username": "王彳亍",
+    "class": 202001,
+    "permission": 0
+    "token": "xxxx"
+}
+```
+
+#### 3.1.2. 登出 `/user/logout`
+
+NoToken
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "登出成功"
+}
+```
+
+#### 3.1.3. 查看当前登陆账号的信息 `/user/info`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "userName": "王彳亍",
+    "class": 202001,
+    "permission": 0
+}
+```
+
+#### 3.1.4. 查看账号信息 `/user/getInfo/\<userId>`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "userName": "王彳亍",
+    "class": 202001,
+    "permission": 0
+}
+```
