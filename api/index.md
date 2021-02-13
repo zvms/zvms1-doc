@@ -13,6 +13,7 @@
 通常发生在一个错误的请求之后，后端会对错误的发生原因进行检查。
 
 发生错误时传回前端的`response`：
+
 ``` json
 {
     "type": "ERROR",
@@ -129,3 +130,298 @@ NoToken
     "permission": 0
 }
 ```
+
+### 3.2. 学生相关 `/student`
+
+#### 3.2.1. 查询某个学生的义工本 `/volbook/\<stuId>`
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "rec": [
+        {"volId": 1, "name": "Event1", "inside": 0.5, "outside": 0, "large": 0, "status": 1},
+        {"volId": 3, "name": "Event2", "inside": 1.5, "outside": 0, "large": 0, "status": 1},
+        {"volId": 5, "name": "Event3", "inside": 0, "outside": 0, "large": 2, "status": 1},
+        {"volId": 6, "name": "Event4", "inside": 0, "outside": 2, "large": 0, "status": 1},
+    ]
+}
+```
+
+### 3.3. 班级相关 `/class`
+
+#### 3.3.1. 获取班级列表 `/class/list`
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "class": [
+        {"id": 202001, "name": "高一1班"},
+        {"id": 202011, "name": "蛟一1班"},
+        {"id": 202002, "name": "高一2班"},
+        {"id": 201901, "name": "高二1班"},
+        {"id": 201801, "name": "高三1班"}
+    ]
+}
+```
+
+Postscript: `name`随年份自动计算。
+
+#### 3.3.2. 获取某个班级的学生列表 `/class/stulist/\<classId>`
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "student": [
+        {"id": 20200101, "name": "王可", "inside": 1.5, "outside": 2, "large": 8},
+        {"id": 20200102, "name": "王不可", "inside": 2.5, "outside": 2, "large": 8},
+        {"id": 20200103, "name": "王可以", "inside": 5, "outside": 8, "large": 0},
+        {"id": 20200104, "name": "王不行", "inside": 1, "outside": 4, "large": 16},
+        {"id": 20200105, "name": "王彳亍", "inside": 5, "outside": 0, "large": 8}
+    ]
+}
+```
+
+#### 3.3.3. 查询某个班级能参加的义工活动列表 `/class/volunteer/\<classId>`
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "volunteer": [
+        {"id": 1, "name": "义工活动1", "date": "2020.10.1", "time": "13:00", "description": "...", "status": 1, "stuMax": 20},
+        {"id": 2, "name": "义工活动2", "date": "2020.10.2", "time": "13:00", "description": "...", "status": 1, "stuMax": 2},
+        {"id": 3, "name": "义工活动3", "date": "2020.10.3", "time": "13:00", "description": "...", "status": 0, "stuMax": 5},
+        {"id": 4, "name": "义工活动4", "date": "2020.10.4", "time": "13:00", "description": "...", "status": 2, "stuMax": 10}
+    ]
+}
+```
+
+### 3.4. 义工活动相关 `/volunteer`
+
+#### 3.4.1. 义工活动总表 `/volunteer/list`
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "volunteer": [
+        {"id": 1, "name": "义工活动1", "description": "...", "date": "2020.10.1", "time": "13:00", "status": 1, "stuMax": 20},
+        {"id": 2, "name": "义工活动2", "description": "...", "date": "2020.10.2", "time": "13:00", "status": 1, "stuMax": 2},
+        {"id": 3, "name": "义工活动3", "description": "...", "date": "2020.10.3", "time": "13:00", "status": 0, "stuMax": 5},
+        {"id": 4, "name": "义工活动4", "description": "...", "date": "2020.10.4", "time": "13:00", "status": 2, "stuMax": 10}
+    ]
+}
+```
+
+#### 3.4.2. 查询单次义工详细信息 `/volunteer/fetch/\<volId>`
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "name": "义工活动1",
+    "date": "2020.10.1",
+    "time": "13:00",
+    "stuMax": 20,
+    "stuNow": 18,
+    "description": "...",
+    "status": 1,
+    "inside": 0,
+    "outside": 3,
+    "large": 0
+}
+```
+
+#### 3.4.3. 报名义工活动 `/volunteer/signup/\<volId>`
+
+> 输入示例
+
+``` json
+{
+    "stulst": [
+        20200101,
+        20200102,
+        20200103
+    ]
+}
+```
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "报名成功"
+}
+```
+
+#### 3.4.4. 创建义工活动 `/volunteer/create`
+
+> 输入示例
+
+``` json
+{
+    "name": "义工活动1",
+    "date": "2020.10.1",
+    "time": "13:00",
+    "stuMax": 20,
+    "description": "...",
+    "inside": 0,
+    "outside": 3,
+    "large": 0,
+    "class": [
+        {"id": 202001, "stuMax": 10, "visible": true},
+        {"id": 202002, "stuMax": 5, "visible": true},
+        {"id": 202003, "stuMax": 10, "visible": true}
+        {"id": 202004, "stuMax": 0, "visible": false},
+    ]
+}
+```
+
+> 输出示例
+
+``` json
+{
+    "type": "SUCCESS",
+    "message": "创建成功"
+}
+```
+
+Postscript: `class`是分配给每个班级的人数，`visible`表示该义工活动对该班级是否可见，默认为`false`。
+
+#### 3.4.5. 获取义工活动报名列表 `/volunteer/signerList/\<volId>`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "result": [
+        {"stuId": 20200101, "stuName": "王彳亍"},
+        {"stuId": 20200102, "stuName": "王不可"},
+        {"stuId": 20200103, "stuName": "王可"}
+    ]
+}
+```
+
+#### 3.4.6. 选择义工活动参加的人 `/volunteer/choose/\<volId>`
+
+> 输入示例
+
+```json
+{
+    "result": [
+        {"stuId": 20200101, "res": true},
+        {"stuId": 20200102, "res": false}
+    ]
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "审核成功"
+}
+```
+
+#### 3.4.7. 义工活动参与者列表 `/volunteer/joinerList/\<volId>`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "result": [
+        {"stuId": 20200101, "stuName": "王彳亍"},
+        {"stuId": 20200103, "stuName": "王可"}
+    ]
+}
+```
+
+#### 3.4.8. 义工活动感想提交 `/volunteer/thought/\<volId>`
+
+> 输入示例
+
+```json
+{
+    "thought":[
+        {"userId": 20200101, "content": "没有感想"},
+        {"userId": 20200102, "content": "感想没有"}
+    ]
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "提交成功"
+}
+```
+
+#### 3.4.9. 随机获取一条感想 `/volunteer/randomThought/`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "userName": "王彳亍",
+    "userId": 20200101,
+    "content": "没有感想"
+}
+```
+
+Postscript: 实际使用过程中这样的感想一定不能让过。
+
+#### 3.4.10. 感想审核 `/volunteer/audit/\<volId>`
+
+> 输入示例
+
+```json
+{
+    "status": 2,
+    "thought":[
+        {"stuId": 20200101, "thought": true},
+        {"stuId": 20200102, "thought": false},
+    ],
+    "time": [
+        {"stuId": 20200101, "inside": 1.2, "outside": 0, "large": 0}
+    ]
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "提交成功"
+}
+```
+
+Postscript:
+
+* `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2` 表示感想被打回，可重新提交；`status = 3`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交。
+* 如果感想未通过，time应该不出现
