@@ -62,6 +62,8 @@
 
 同时，后端服务器会记录下导致错误的请求，便于系统维护者复现问题。
 
+（保存在文件`logs/debug.log`中）
+
 ## 3. 接口调用
 
 ### 3.1. 用户相关 `/user/`
@@ -403,13 +405,10 @@ Postscript: 实际使用过程中这样的感想一定不能让过。
 
 ```json
 {
-    "status": 2,
-    "thought":[
-        {"stuId": 20200101, "thought": true},
-        {"stuId": 20200102, "thought": false},
-    ],
-    "time": [
-        {"stuId": 20200101, "inside": 1.2, "outside": 0, "large": 0}
+    "thought": [
+        {"stuId": 20200101, "status": 1, "inside": 70, "outside": 0, "large": 0},
+        {"stuId": 20200102, "status": 2, "inside": 0, "outside": 0, "large": 0},
+        {"stuId": 20200103, "status": 3, "inside": 0, "outside": 0, "large": 0}
     ]
 }
 ```
@@ -423,7 +422,4 @@ Postscript: 实际使用过程中这样的感想一定不能让过。
 }
 ```
 
-Postscript:
-
-* `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2` 表示感想被打回，可重新提交；`status = 3`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交。
-* 如果感想未通过，time应该不出现
+Postscript: `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2` 表示感想被打回，可重新提交；`status = 3`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交。

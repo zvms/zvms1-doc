@@ -9,9 +9,10 @@
 * [后端代码](./backend/index)
 * [数据库](./database/index)
 
-## 流程部分
+## 系统说明部分
 
 * [业务流程](./process/index)
+* [权限系统](./permission/index)
 
 ## 使用说明
 
