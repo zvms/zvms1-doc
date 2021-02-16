@@ -9,4 +9,4 @@
 
 [开始使用](#quick-start)
 
-![](logo.png)
+![](bg.jpg)
