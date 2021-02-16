@@ -9,6 +9,12 @@
   * [前后端接口](./api/index)
 
   * [后端代码](./backend/index)
+  
+    * [安全系统](./backend/safety)
+
+    * [Token-id](./backend/token)
+
+    * [代码解释](./backend/code)
 
   * [数据库](./database/index)
 
@@ -20,7 +26,23 @@
 
 * 使用说明
 
+  * [班级](./class/index)
+
+  * [教师](./teacher/index)
+
+  * [义管会](./volmaner/index)
+
+  * [系统](./system/index)
+
 * 开发者说明
+
+  * [注意事项](./warn/index)
+
+  * [数据库管理](./dbmng/index)
+
+  * [运营](./operate/index)
+
+  * [代码修改](./revise/index)
 
 * 其他
 
