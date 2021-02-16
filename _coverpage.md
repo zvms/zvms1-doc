@@ -1,5 +1,3 @@
-![](logo.png)
-
 # ZVMS
 
 > 镇海中学义工管理系统
@@ -10,3 +8,5 @@
 * 数据库：MySQL
 
 [开始使用](#quick-start)
+
+![](logo.png)
