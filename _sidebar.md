@@ -36,8 +36,6 @@
 
 * 开发者说明
 
-  * [注意事项](./warn/index)
-
   * [数据库管理](./dbmng/index)
 
   * [运营](./operate/index)

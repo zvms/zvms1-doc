@@ -14,5 +14,4 @@
 
 ?> 此文档使用[docsify](https://github.com/docsifyjs/docsify)生成。
 
-All Rights Reserved.
-@镇海中学实践部-义管会
+©2019-2021 镇海中学实践部-义管会. All Rights Reserved.
