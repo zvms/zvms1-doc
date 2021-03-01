@@ -145,6 +145,30 @@ Token：携带
 }
 ```
 
+#### 3.1.5. 修改帐号密码 `/user/modPsw`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "oldPsw": "d41d8cd9...",
+    "newPsw": "e10adc39..."
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "修改成功"
+}
+```
+
 ### 3.2. 学生相关 `/student`
 
 #### 3.2.1. 查询某个学生的义工本 `/volbook/\<stuId>`
