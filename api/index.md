@@ -513,3 +513,111 @@ Token：携带
 ```
 
 Postscript: `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2` 表示感想被打回，可重新提交；`status = 3`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交。
+
+#### 3.4.11. 修改义工信息 `/volunteer/modify/\<volId>`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+``` json
+{
+    "name": "义工活动1",
+    "date": "2020.10.1",
+    "time": "13:00",
+    "stuMax": 20,
+    "description": "...",
+    "status": 1,
+    "inside": 0,
+    "outside": 3,
+    "large": 0
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "修改成功"
+}
+```
+
+Postscript: `stuMax`（如果要修改的话）不能小于当前的报名人数，否则返回错误。
+
+### 3.5. 公告相关 `/notice`
+
+#### 3.5.1. 新建一条公告 `/notice/new`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "content": "blablablablah",
+    "announcer": "20200101 xxx"
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "添加成功"
+}
+```
+
+#### 3.5.2. 查询活跃公告 `/notice/query`
+
+Token：携带
+
+请求方法：`GET`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "查询成功",
+    "list": [
+        {"content": "blablablablah", "announcer": "20200101 xxx", "time": "2020.01.01 00:00:01", "id": 2},
+        {"content": "blablablablah", "announcer": "20200102 xxx", "time": "2020.01.01 00:00:02", "id": 5},
+        {"content": "blablablablah", "announcer": "20200103 xxx", "time": "2020.01.01 11:45:14", "id": 6}
+    ]
+}
+```
+
+#### 3.5.3. 修改指定公告 `/notice/modify/\<ntcId>`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "id": 5,
+    "content": "blablablablah",
+    "announcer": "20200101 xxx",
+    "time": "2020.01.01 00:00:01",
+    "status": 0
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "修改成功"
+}
+```
+
+Postscript: `status = 0`表示不可见，`status = 1`表示可见
