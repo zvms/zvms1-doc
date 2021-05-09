@@ -145,7 +145,7 @@ Token：携带
 }
 ```
 
-#### 3.1.5. 修改帐号密码 `/user/modPsw`
+#### 3.1.5. 修改帐号密码 `/user/modPwd`
 
 Token：携带
 
@@ -155,8 +155,8 @@ Token：携带
 
 ```json
 {
-    "oldPsw": "d41d8cd9...",
-    "newPsw": "e10adc39..."
+    "oldPwd": "d41d8cd9...",
+    "newPwd": "e10adc39..."
 }
 ```
 
