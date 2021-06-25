@@ -9,5 +9,5 @@
 * 一切规范接口等，修改后请把文档一起修改了
 * 安全部分的功能（如记录敏感操作、防SQL注入等）不得删除
 * 代码在Gitee上的[zvms组织](https://gitee.com/zvms)中同步
-* 不要`push -f`
+* 除非不得已不要`push -f`
 * 时刻维护[文档](https://zvms.gitee.io/zvms-doc/)

@@ -357,8 +357,8 @@ Token：携带
     "class": [
         {"id": 202001, "stuMax": 10, "visible": true},
         {"id": 202002, "stuMax": 5, "visible": true},
-        {"id": 202003, "stuMax": 10, "visible": true}
-        {"id": 202004, "stuMax": 0, "visible": false},
+        {"id": 202003, "stuMax": 10, "visible": true},
+        {"id": 202004, "stuMax": 0, "visible": false}
     ]
 }
 ```
@@ -394,51 +394,6 @@ Token：携带
 }
 ```
 
-#### 3.4.6. 选择义工活动参加的人 `/volunteer/choose/\<volId>`
-
-Token：携带
-
-请求方法：`POST`
-
-> 输入示例
-
-```json
-{
-    "result": [
-        {"stuId": 20200101, "res": true},
-        {"stuId": 20200102, "res": false}
-    ]
-}
-```
-
-> 输出示例
-
-```json
-{
-    "type": "SUCCESS",
-    "message": "审核成功"
-}
-```
-
-#### 3.4.7. 义工活动参与者列表 `/volunteer/joinerList/\<volId>`
-
-Token：携带
-
-请求方法：`GET`
-
-> 输出示例
-
-```json
-{
-    "type": "SUCCESS",
-    "message": "获取成功",
-    "result": [
-        {"stuId": 20200101, "stuName": "王彳亍"},
-        {"stuId": 20200103, "stuName": "王可"}
-    ]
-}
-```
-
 #### 3.4.8. 义工活动感想提交 `/volunteer/thought/\<volId>`
 
 Token：携带
@@ -450,8 +405,8 @@ Token：携带
 ```json
 {
     "thought":[
-        {"userId": 20200101, "content": "没有感想"},
-        {"userId": 20200102, "content": "感想没有"}
+        {"stuId": 20200101, "content": "没有感想"},
+        {"stuId": 20200102, "content": "感想没有"}
     ]
 }
 ```
@@ -465,7 +420,7 @@ Token：携带
 }
 ```
 
-#### 3.4.9. 随机获取一条感想 `/volunteer/randomThought/`
+#### 3.4.9. 随机获取一条感想 `/volunteer/randomThought/`（所以SQL怎么随机啊）
 
 Token：不携带
 
@@ -512,42 +467,9 @@ Token：携带
 }
 ```
 
-Postscript: `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2` 表示感想被打回，可重新提交；`status = 3`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交。
+Postscript: `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交；`status = 3` 表示感想被打回，可重新提交。
 
-#### 3.4.11. 修改义工信息 `/volunteer/modify/\<volId>`
-
-Token：携带
-
-请求方法：`POST`
-
-> 输入示例
-
-``` json
-{
-    "name": "义工活动1",
-    "date": "2020.10.1",
-    "time": "13:00",
-    "stuMax": 20,
-    "description": "...",
-    "status": 1,
-    "inside": 0,
-    "outside": 3,
-    "large": 0
-}
-```
-
-> 输出示例
-
-```json
-{
-    "type": "SUCCESS",
-    "message": "修改成功"
-}
-```
-
-Postscript: `stuMax`（如果要修改的话）不能小于当前的报名人数，否则返回错误。
-
-### 3.5. 公告相关 `/notice`
+### 3.5. 公告相关 `/notice`（咕咕咕）
 
 #### 3.5.1. 新建一条公告 `/notice/new`
 
