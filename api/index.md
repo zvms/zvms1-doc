@@ -261,6 +261,25 @@ Token：携带
 }
 ```
 
+#### 3.3.4 获取未填写感想的义工 `/class/noThought`
+
+Token：携带
+
+请求方法：`get`
+
+> 输出示例
+
+```json
+{
+    "type":"SUCCESS",
+    "message":"获取成功",
+    "result":[
+        {"volId":1,"stuId":20200101},
+        {"volId":3,"stuId":20200102}
+    ]
+}
+```
+
 ### 3.4. 义工活动相关 `/volunteer`
 
 #### 3.4.1. 义工活动总表 `/volunteer/list`
@@ -487,6 +506,38 @@ Token：不携带
     ]
 }
 ```
+
+#### 3.4.12 假期义工统一修改 `/volunteer/holiday`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "name":"打扫xxxx",
+    "date":"2021.2.30",
+    "time":"12:00",
+    "stuId":[20200101,20200102,20200103],
+    "description":"ftp://ftp/aaa/bbb.docx",
+    "inside":0,
+    "outside":4,
+    "large":2
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type":"SUCCESS",
+    "message":"提交成功"
+}
+```
+
+
 
 ### 3.5. 公告相关 `/notice`（咕咕咕）
 
