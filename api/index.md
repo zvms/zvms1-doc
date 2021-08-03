@@ -469,6 +469,25 @@ Token：携带
 
 Postscript: `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交；`status = 3` 表示感想被打回，可重新提交。
 
+#### 3.4.11. 获取未审核感想 `/volunteer/unaudited`
+
+Token：不携带
+
+请求方法：`GET`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "result": [
+        {"volId": 1, "stuId": 20200101, "thought": "xxxx"},
+        {"volId": 3, "stuId": 20200102, "thought": "xxxx"}
+    ]
+}
+```
+
 ### 3.5. 公告相关 `/notice`（咕咕咕）
 
 #### 3.5.1. 新建一条公告 `/notice/new`
