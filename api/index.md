@@ -1,5 +1,3 @@
-*[返回上一级](./../index)
-
 # 接口部分文档
 
 这个文档是对前后端接口部分的解释
@@ -147,6 +145,30 @@ Token：携带
 }
 ```
 
+#### 3.1.5. 修改帐号密码 `/user/modPwd`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "oldPwd": "d41d8cd9...",
+    "newPwd": "e10adc39..."
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "修改成功"
+}
+```
+
 ### 3.2. 学生相关 `/student`
 
 #### 3.2.1. 查询某个学生的义工本 `/volbook/\<stuId>`
@@ -235,6 +257,25 @@ Token：携带
         {"id": 2, "name": "义工活动2", "date": "2020.10.2", "time": "13:00", "description": "...", "status": 1, "stuMax": 2},
         {"id": 3, "name": "义工活动3", "date": "2020.10.3", "time": "13:00", "description": "...", "status": 0, "stuMax": 5},
         {"id": 4, "name": "义工活动4", "date": "2020.10.4", "time": "13:00", "description": "...", "status": 2, "stuMax": 10}
+    ]
+}
+```
+
+#### 3.3.4 获取未填写感想的义工 `/class/noThought`
+
+Token：携带
+
+请求方法：`get`
+
+> 输出示例
+
+```json
+{
+    "type":"SUCCESS",
+    "message":"获取成功",
+    "result":[
+        {"volId":1,"stuId":20200101},
+        {"volId":3,"stuId":20200102}
     ]
 }
 ```
@@ -335,8 +376,8 @@ Token：携带
     "class": [
         {"id": 202001, "stuMax": 10, "visible": true},
         {"id": 202002, "stuMax": 5, "visible": true},
-        {"id": 202003, "stuMax": 10, "visible": true}
-        {"id": 202004, "stuMax": 0, "visible": false},
+        {"id": 202003, "stuMax": 10, "visible": true},
+        {"id": 202004, "stuMax": 0, "visible": false}
     ]
 }
 ```
@@ -372,51 +413,6 @@ Token：携带
 }
 ```
 
-#### 3.4.6. 选择义工活动参加的人 `/volunteer/choose/\<volId>`
-
-Token：携带
-
-请求方法：`POST`
-
-> 输入示例
-
-```json
-{
-    "result": [
-        {"stuId": 20200101, "res": true},
-        {"stuId": 20200102, "res": false}
-    ]
-}
-```
-
-> 输出示例
-
-```json
-{
-    "type": "SUCCESS",
-    "message": "审核成功"
-}
-```
-
-#### 3.4.7. 义工活动参与者列表 `/volunteer/joinerList/\<volId>`
-
-Token：携带
-
-请求方法：`GET`
-
-> 输出示例
-
-```json
-{
-    "type": "SUCCESS",
-    "message": "获取成功",
-    "result": [
-        {"stuId": 20200101, "stuName": "王彳亍"},
-        {"stuId": 20200103, "stuName": "王可"}
-    ]
-}
-```
-
 #### 3.4.8. 义工活动感想提交 `/volunteer/thought/\<volId>`
 
 Token：携带
@@ -428,8 +424,8 @@ Token：携带
 ```json
 {
     "thought":[
-        {"userId": 20200101, "content": "没有感想"},
-        {"userId": 20200102, "content": "感想没有"}
+        {"stuId": 20200101, "content": "没有感想"},
+        {"stuId": 20200102, "content": "感想没有"}
     ]
 }
 ```
@@ -443,12 +439,11 @@ Token：携带
 }
 ```
 
-#### 3.4.9. 随机获取一条感想 `/volunteer/randomThought/`
+#### 3.4.9. 随机获取一条感想 `/volunteer/randomThought/`（所以SQL怎么随机啊）
 
 Token：不携带
 
 请求方法：`GET`
-
 
 > 输出示例
 
@@ -491,4 +486,130 @@ Token：携带
 }
 ```
 
-Postscript: `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2` 表示感想被打回，可重新提交；`status = 3`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交。
+Postscript: `status = 1` 表示审核通过，义工时间会立刻到账；`status = 2`表示写的是什么垃圾感想，义工时间不给了，不允许重新提交；`status = 3` 表示感想被打回，可重新提交。
+
+#### 3.4.11. 获取未审核感想 `/volunteer/unaudited`
+
+Token：不携带
+
+请求方法：`GET`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "获取成功",
+    "result": [
+        {"volId": 1, "stuId": 20200101, "thought": "xxxx"},
+        {"volId": 3, "stuId": 20200102, "thought": "xxxx"}
+    ]
+}
+```
+
+#### 3.4.12 假期义工统一修改 `/volunteer/holiday`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "name":"打扫xxxx",
+    "date":"2021.2.30",
+    "time":"12:00",
+    "stuId":[20200101,20200102,20200103],
+    "description":"ftp://ftp/aaa/bbb.docx",
+    "inside":0,
+    "outside":4,
+    "large":2
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type":"SUCCESS",
+    "message":"提交成功"
+}
+```
+
+
+
+### 3.5. 公告相关 `/notice`（咕咕咕）
+
+#### 3.5.1. 新建一条公告 `/notice/new`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "content": "blablablablah",
+    "announcer": "20200101 xxx"
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "添加成功"
+}
+```
+
+#### 3.5.2. 查询活跃公告 `/notice/query`
+
+Token：携带
+
+请求方法：`GET`
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "查询成功",
+    "list": [
+        {"content": "blablablablah", "announcer": "20200101 xxx", "time": "2020.01.01 00:00:01", "id": 2},
+        {"content": "blablablablah", "announcer": "20200102 xxx", "time": "2020.01.01 00:00:02", "id": 5},
+        {"content": "blablablablah", "announcer": "20200103 xxx", "time": "2020.01.01 11:45:14", "id": 6}
+    ]
+}
+```
+
+#### 3.5.3. 修改指定公告 `/notice/modify/\<ntcId>`
+
+Token：携带
+
+请求方法：`POST`
+
+> 输入示例
+
+```json
+{
+    "id": 5,
+    "content": "blablablablah",
+    "announcer": "20200101 xxx",
+    "time": "2020.01.01 00:00:01",
+    "status": 0
+}
+```
+
+> 输出示例
+
+```json
+{
+    "type": "SUCCESS",
+    "message": "修改成功"
+}
+```
+
+Postscript: `status = 0`表示不可见，`status = 1`表示可见

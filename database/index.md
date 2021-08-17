@@ -1,5 +1,3 @@
-*[返回上一级](./../index)
-
 # 数据库部分文档
 
 这个文档是对数据库部分的解释
@@ -57,7 +55,7 @@ volTime | volunteering time | CHAR(64) | 义工活动的时间 | 13:00 |
 stuMax | maximum students | INTEGER | 义工活动的人数上限 | 10 |
 nowStuCount | now student | INTEGER | 义工活动的现有人数 | 8 |
 description | description | TEXT | 义工活动的描述 | blablablabla |
-status |status | SMALLINT | 义工活动的状态 | 0 | Waiting for complete
+status |status | SMALLINT | 义工活动的状态 | 0 | 0：等待审核；1：可以报名； 2：报名截止 |
 volTimeInside | volunteering time inside | INTEGER | 每个人预计将获得的校内义工时间 | 0 | 以分钟为单位
 volTimeOutside | volunteering time outside | INTEGER | 每个人预计将获得的校外义工时间 | 60 | 以分钟为单位
 volTimeLarge | volunteering time large | INTEGER | 每个人预计将获得的大型活动义工时间 | 0 | 以分钟为单位
@@ -71,7 +69,7 @@ holderId | volunteer holder\'s id | INTEGER | 义工发布者的`userid` | 20200
 -|-|-|-|-|-
 volId | volunteering identity | INTEGER | 义工活动的编号 | 1 | 表示`stuId`的学生参加了这个义工活动
 stuId | student identity | INTEGER | 学生的学号 | 20200101 | 表示这个学生参加了`volId`的义工活动
-status | status | SMALLINT | 审核状态 | 0 | Waiting for complete
+status | status | SMALLINT | 审核状态 | 0 | 0：等待审核；1：接受；2：打回不能重新提交；3：打回可以重新提交
 volTimeInside | volunteering time inside | INTEGER | 实际获得的校内义工时间 | 0 | 以分钟为单位
 volTimeOutside | volunteering time outside | INTEGER | 实际获得的校外义工时间 | 60 | 以分钟为单位
 volTimeLarge | volunteering time large | INTEGER | 实际获得的大型活动义工时间 | 0 | 以分钟为单位
