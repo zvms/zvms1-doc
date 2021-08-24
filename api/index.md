@@ -439,7 +439,7 @@ Token：携带
 }
 ```
 
-#### 3.4.9. 随机获取一条感想 `/volunteer/randomThought/`（所以SQL怎么随机啊）
+#### 3.4.9. 随机获取一条感想 `/volunteer/randomThought/`
 
 Token：不携带
 
