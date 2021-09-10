@@ -11,6 +11,6 @@
 
 我们鼓励所有人阅读、修改我们的代码，所有提交`Pull Request`或提出`Issue`的同学都有机会获得由义管会发出的神秘奖励。
 
-[参与开发](https://zvms.gitee.io/zvms-doc/#/./joinus/index)
+[参与开发&&反馈bug](https://zvms.gitee.io/zvms-doc/#/./joinus/index)
 
 [查看宣传页]()
