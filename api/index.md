@@ -77,7 +77,8 @@ Token：不携带
 ``` json
 {
     "userid": "202001",
-    "password": "123456"
+    "password": "123456",
+    "version": "f63163cdb1493c95a036f8830d0132c5"
 }
 ```
 
@@ -91,6 +92,14 @@ Token：不携带
     "class": 202001,
     "permission": 0
     "token": "xxxx"
+}
+```
+或者
+
+```json
+{
+    "type": "ERROR",
+    "message": "版本号过期，请重新下载"
 }
 ```
 
